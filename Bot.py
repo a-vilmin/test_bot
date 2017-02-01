@@ -1,5 +1,6 @@
 from flask import request, Flask
 from os import environ
+import json
 
 app = Flask(__name__)
 
@@ -7,10 +8,8 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 def index():
     if request.method == "POST":
-        print(request.data)
-    else:
-        print("Broke")
-
+        data = json.load(request.data)
+        print(data["name"])
     return "success"
 if __name__ == '__main__':
     port = int(environ.get('PORT', 5000))
