@@ -4,8 +4,8 @@ from os import environ
 app = Flask(__name__)
 
 
-@app.route('/data', methods=['POST'])
-def data():
+@app.route('/', methods=['POST'])
+def index():
     if request.method == "POST":
         print(request.data)
     else:
