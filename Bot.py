@@ -1,9 +1,15 @@
-from flask import request
+from flask import request, Flask
 
-@app.route('/', methods=['GET'])
+app = Flask(__name__)
 
-def index():
-    if request.method == 'GET':
+
+@app.route('/data', methods=['POST'])
+def data():
+    if request.method == "POST":
         print(request.data)
     else:
         print("Broke")
+
+    return "success"
+if __name__ == '__main__':
+    app.run()
