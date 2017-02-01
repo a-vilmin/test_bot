@@ -8,8 +8,8 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 def index():
     if request.method == "POST":
-        data = request.data
-        print(type(data))
+        data = json.loads(request.data.decode("utf-8"))
+        print(data["name"])
     return "success"
 if __name__ == '__main__':
     port = int(environ.get('PORT', 5000))
