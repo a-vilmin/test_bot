@@ -9,6 +9,7 @@ bot_id = environ['BOT_ID']
 
 
 def bot_commands(info):
+    print(info["text"])
     if info['text'].startswith('HEY BOT'):
         body = {"bot_id": bot_id,
                 "text": "Roll Armchair, " + info['name'] + "!!"}
